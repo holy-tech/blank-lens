@@ -4,11 +4,11 @@
  */
 
 export type KubeResource =
-  "namespaces" | "nodes" | "resourcequotas" | "services" | "limitranges" | "leases" |
-  "secrets" | "configmaps" | "ingresses" | "ingressclasses" | "networkpolicies" | "storageclasses" |
-  "pods" | "daemonsets" | "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
-  "endpoints" | "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" | "poddisruptionbudgets" |
-  "priorityclasses" | "runtimeclasses";
+  "namespaces" | "nodes" | "resourcequotas" | "limitranges" | "leases" |
+  "secrets" | "configmaps" | "storageclasses" | "pods" | "daemonsets" |
+  "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
+  "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" |
+  "poddisruptionbudgets" | "priorityclasses" | "runtimeclasses";
 
 export interface KubeApiResource {
   kind: string;
@@ -60,25 +60,10 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     group: "apps",
     namespaced: true,
   },
-  endpoints: {
-    kind: "Endpoint",
-    group: "",
-    namespaced: true,
-  },
   horizontalpodautoscalers: {
     kind: "HorizontalPodAutoscaler",
     group: "autoscaling",
     namespaced: true,
-  },
-  ingresses: {
-    kind: "Ingress",
-    group: "networking.k8s.io",
-    namespaced: true,
-  },
-  ingressclasses: {
-    kind: "IngressClass",
-    group: "networking.k8s.io",
-    namespaced: false,
   },
   jobs: {
     kind: "Job",
@@ -98,11 +83,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
   leases: {
     kind: "Lease",
     group: "",
-    namespaced: true,
-  },
-  networkpolicies: {
-    kind: "NetworkPolicy",
-    group: "networking.k8s.io",
     namespaced: true,
   },
   nodes: {
@@ -142,11 +122,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
   },
   secrets: {
     kind: "Secret",
-    group: "",
-    namespaced: true,
-  },
-  services: {
-    kind: "Service",
     group: "",
     namespaced: true,
   },
