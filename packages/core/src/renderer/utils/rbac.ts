@@ -18,8 +18,6 @@ export const ResourceNames: Record<KubeResource, string> = {
   "ingresses": "Ingresses",
   "ingressclasses": "Ingress Classes",
   "networkpolicies": "Network Policies",
-  "persistentvolumeclaims": "Persistent Volume Claims",
-  "persistentvolumes": "Persistent Volumes",
   "storageclasses": "Storage Classes",
   "pods": "Pods",
   "daemonsets": "Daemon Sets",

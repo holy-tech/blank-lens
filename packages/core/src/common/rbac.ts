@@ -5,7 +5,7 @@
 
 export type KubeResource =
   "namespaces" | "nodes" | "resourcequotas" | "services" | "limitranges" | "leases" |
-  "secrets" | "configmaps" | "ingresses" | "ingressclasses" | "networkpolicies" | "persistentvolumeclaims" | "persistentvolumes" | "storageclasses" |
+  "secrets" | "configmaps" | "ingresses" | "ingressclasses" | "networkpolicies" | "storageclasses" |
   "pods" | "daemonsets" | "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
   "endpoints" | "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" | "poddisruptionbudgets" |
   "priorityclasses" | "runtimeclasses";
@@ -109,16 +109,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     kind: "Node",
     group: "",
     namespaced: false,
-  },
-  persistentvolumes: {
-    kind: "PersistentVolume",
-    group: "",
-    namespaced: false,
-  },
-  persistentvolumeclaims: {
-    kind: "PersistentVolumeClaim",
-    group: "",
-    namespaced: true,
   },
   pods: {
     kind: "Pod",
