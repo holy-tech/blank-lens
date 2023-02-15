@@ -4,12 +4,11 @@
  */
 
 export type KubeResource =
-  "namespaces" | "nodes" | "events" | "resourcequotas" | "services" | "limitranges" | "leases" |
+  "namespaces" | "nodes" | "resourcequotas" | "services" | "limitranges" | "leases" |
   "secrets" | "configmaps" | "ingresses" | "ingressclasses" | "networkpolicies" | "persistentvolumeclaims" | "persistentvolumes" | "storageclasses" |
   "pods" | "daemonsets" | "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
-  "endpoints" | "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" | "podsecuritypolicies" | "poddisruptionbudgets" |
-  "priorityclasses" | "runtimeclasses" |
-  "roles" | "clusterroles" | "rolebindings" | "clusterrolebindings" | "serviceaccounts";
+  "endpoints" | "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" | "poddisruptionbudgets" |
+  "priorityclasses" | "runtimeclasses";
 
 export interface KubeApiResource {
   kind: string;
@@ -36,16 +35,6 @@ export interface KubeApiResourceData {
 }
 
 export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
-  clusterroles: {
-    kind: "ClusterRole",
-    group: "rbac.authorization.k8s.io",
-    namespaced: false,
-  },
-  clusterrolebindings: {
-    kind: "ClusterRoleBinding",
-    group: "rbac.authorization.k8s.io",
-    namespaced: false,
-  },
   configmaps: {
     kind: "ConfigMap",
     group: "",
@@ -73,11 +62,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
   },
   endpoints: {
     kind: "Endpoint",
-    group: "",
-    namespaced: true,
-  },
-  events: {
-    kind: "Event",
     group: "",
     namespaced: true,
   },
@@ -146,11 +130,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     group: "policy",
     namespaced: true,
   },
-  podsecuritypolicies: {
-    kind: "PodSecurityPolicy",
-    group: "policy",
-    namespaced: false,
-  },
   priorityclasses: {
     kind: "PriorityClass",
     group: "scheduling.k8s.io",
@@ -171,23 +150,8 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     group: "apps",
     namespaced: true,
   },
-  roles: {
-    kind: "Role",
-    group: "rbac.authorization.k8s.io",
-    namespaced: true,
-  },
-  rolebindings: {
-    kind: "RoleBinding",
-    group: "rbac.authorization.k8s.io",
-    namespaced: true,
-  },
   secrets: {
     kind: "Secret",
-    group: "",
-    namespaced: true,
-  },
-  serviceaccounts: {
-    kind: "ServiceAccount",
     group: "",
     namespaced: true,
   },

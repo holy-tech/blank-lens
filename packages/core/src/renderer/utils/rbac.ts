@@ -10,7 +10,6 @@ import { object } from "../../common/utils";
 export const ResourceNames: Record<KubeResource, string> = {
   "namespaces": "Namespaces",
   "nodes": "Nodes",
-  "events": "Events",
   "leases": "Leases",
   "resourcequotas": "Resource Quotas",
   "services": "Services",
@@ -32,16 +31,10 @@ export const ResourceNames: Record<KubeResource, string> = {
   "endpoints": "Endpoints",
   "customresourcedefinitions": "Custom Resource Definitions",
   "horizontalpodautoscalers": "Horizontal Pod Autoscalers",
-  "podsecuritypolicies": "Pod Security Policies",
   "poddisruptionbudgets": "Pod Disruption Budgets",
   "priorityclasses": "Priority Classes",
   "runtimeclasses": "Runtime Classes",
   "limitranges": "Limit Ranges",
-  "roles": "Roles",
-  "rolebindings": "Role Bindings",
-  "clusterrolebindings": "Cluster Role Bindings",
-  "clusterroles": "Cluster Roles",
-  "serviceaccounts": "Service Accounts",
   "verticalpodautoscalers": "Vertical Pod Autoscalers",
 };
 
