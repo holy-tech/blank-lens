@@ -4,11 +4,11 @@
  */
 
 export type KubeResource =
-  "namespaces" | "nodes" | "resourcequotas" | "limitranges" | "leases" |
-  "secrets" | "configmaps" | "storageclasses" | "pods" | "daemonsets" |
+  "namespaces" | "nodes" |
+  "storageclasses" | "pods" | "daemonsets" |
   "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
-  "customresourcedefinitions" | "horizontalpodautoscalers" | "verticalpodautoscalers" |
-  "poddisruptionbudgets" | "priorityclasses" | "runtimeclasses";
+  "customresourcedefinitions" |
+  "runtimeclasses";
 
 export interface KubeApiResource {
   kind: string;
@@ -35,11 +35,6 @@ export interface KubeApiResourceData {
 }
 
 export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
-  configmaps: {
-    kind: "ConfigMap",
-    group: "",
-    namespaced: true,
-  },
   cronjobs: {
     kind: "CronJob",
     group: "batch",
@@ -60,11 +55,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     group: "apps",
     namespaced: true,
   },
-  horizontalpodautoscalers: {
-    kind: "HorizontalPodAutoscaler",
-    group: "autoscaling",
-    namespaced: true,
-  },
   jobs: {
     kind: "Job",
     group: "batch",
@@ -74,16 +64,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     kind: "Namespace",
     group: "",
     namespaced: false,
-  },
-  limitranges: {
-    kind: "LimitRange",
-    group: "",
-    namespaced: true,
-  },
-  leases: {
-    kind: "Lease",
-    group: "",
-    namespaced: true,
   },
   nodes: {
     kind: "Node",
@@ -95,34 +75,14 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     group: "",
     namespaced: true,
   },
-  poddisruptionbudgets: {
-    kind: "PodDisruptionBudget",
-    group: "policy",
-    namespaced: true,
-  },
-  priorityclasses: {
-    kind: "PriorityClass",
-    group: "scheduling.k8s.io",
-    namespaced: false,
-  },
   runtimeclasses: {
     kind: "RuntimeClass",
     group: "node.k8s.io",
     namespaced: false,
   },
-  resourcequotas: {
-    kind: "ResourceQuota",
-    group: "",
-    namespaced: true,
-  },
   replicasets: {
     kind: "ReplicaSet",
     group: "apps",
-    namespaced: true,
-  },
-  secrets: {
-    kind: "Secret",
-    group: "",
     namespaced: true,
   },
   statefulsets: {
@@ -134,10 +94,5 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     kind: "StorageClass",
     group: "storage.k8s.io",
     namespaced: false,
-  },
-  verticalpodautoscalers: {
-    kind: "VerticalPodAutoscaler",
-    group: "autoscaling.k8s.io",
-    namespaced: true,
   },
 };
