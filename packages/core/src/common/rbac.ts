@@ -5,8 +5,7 @@
 
 export type KubeResource =
   "nodes" |
-  "storageclasses" | "pods" | "daemonsets" |
-  "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
+  "storageclasses" |
   "customresourcedefinitions" |
   "runtimeclasses";
 
@@ -35,55 +34,20 @@ export interface KubeApiResourceData {
 }
 
 export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
-  cronjobs: {
-    kind: "CronJob",
-    group: "batch",
-    namespaced: true,
-  },
   customresourcedefinitions: {
     kind: "CustomResourceDefinition",
     group: "apiextensions.k8s.io",
     namespaced: false,
-  },
-  daemonsets: {
-    kind: "DaemonSet",
-    group: "apps",
-    namespaced: true,
-  },
-  deployments: {
-    kind: "Deployment",
-    group: "apps",
-    namespaced: true,
-  },
-  jobs: {
-    kind: "Job",
-    group: "batch",
-    namespaced: true,
   },
   nodes: {
     kind: "Node",
     group: "",
     namespaced: false,
   },
-  pods: {
-    kind: "Pod",
-    group: "",
-    namespaced: true,
-  },
   runtimeclasses: {
     kind: "RuntimeClass",
     group: "node.k8s.io",
     namespaced: false,
-  },
-  replicasets: {
-    kind: "ReplicaSet",
-    group: "apps",
-    namespaced: true,
-  },
-  statefulsets: {
-    kind: "StatefulSet",
-    group: "apps",
-    namespaced: true,
   },
   storageclasses: {
     kind: "StorageClass",
