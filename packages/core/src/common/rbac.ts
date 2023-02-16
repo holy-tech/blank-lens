@@ -4,7 +4,7 @@
  */
 
 export type KubeResource =
-  "namespaces" | "nodes" |
+  "nodes" |
   "storageclasses" | "pods" | "daemonsets" |
   "deployments" | "statefulsets" | "replicasets" | "jobs" | "cronjobs" |
   "customresourcedefinitions" |
@@ -59,11 +59,6 @@ export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
     kind: "Job",
     group: "batch",
     namespaced: true,
-  },
-  namespaces: {
-    kind: "Namespace",
-    group: "",
-    namespaced: false,
   },
   nodes: {
     kind: "Node",

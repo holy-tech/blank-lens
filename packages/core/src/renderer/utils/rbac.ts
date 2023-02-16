@@ -8,7 +8,6 @@ import { apiResourceRecord } from "../../common/rbac";
 import { object } from "../../common/utils";
 
 export const ResourceNames: Record<KubeResource, string> = {
-  "namespaces": "Namespaces",
   "nodes": "Nodes",
   "storageclasses": "Storage Classes",
   "pods": "Pods",
