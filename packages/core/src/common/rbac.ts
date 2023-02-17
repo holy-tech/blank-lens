@@ -5,7 +5,6 @@
 
 export type KubeResource =
   "storageclasses" |
-  "customresourcedefinitions" |
   "runtimeclasses";
 
 export interface KubeApiResource {
@@ -33,11 +32,6 @@ export interface KubeApiResourceData {
 }
 
 export const apiResourceRecord: Record<KubeResource, KubeApiResourceData> = {
-  customresourcedefinitions: {
-    kind: "CustomResourceDefinition",
-    group: "apiextensions.k8s.io",
-    namespaced: false,
-  },
   runtimeclasses: {
     kind: "RuntimeClass",
     group: "node.k8s.io",

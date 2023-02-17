@@ -9,7 +9,6 @@ import { object } from "../../common/utils";
 
 export const ResourceNames: Record<KubeResource, string> = {
   "storageclasses": "Storage Classes",
-  "customresourcedefinitions": "Custom Resource Definitions",
   "runtimeclasses": "Runtime Classes",
 };
 
